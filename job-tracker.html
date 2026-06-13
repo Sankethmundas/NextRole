@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker | NextRole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">NextRole</a>
+        </div>
+
+
+        <button class="menu-toggle">
+            ☰
+        </button>
+        <nav>
+
+            <div class="mobile-nav-header">
+                <h2>NextRole</h2>
+                <button  class="close-menu">✕</button>
+            </div>
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="resume-builder.html">Resume Builder</a></li>
+                <li><a href="job-tracker.html">Job Tracker</a></li>
+                <li><a href="cover-letter.html">Cover Letters</a></li>
+                <li><a href="ats-checker.html">ATS Checker</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="login.html" class="mobile-hide">Login</a></li>
+                <li><a href="register.html" class="cta-btn">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="tracker-hero">
+            <h1>Track your Job Applications</h1>
+            <p>Stay organized and monitor opportunity.</p>
+        </section>
+        <section class="job-tracker-container">
+            <div class="job-form">
+                <h2>Add Application</h2>
+                <input
+                    type="text"
+                    id="company"
+                    placeholder="Company Name"
+                >
+                <input 
+                    type="text"
+                    id="role"
+                    placeholder="Job Role"
+                >
+                <select id="status">
+                    <option>Applied</option>
+                    <option>Interview</option>
+                    <option>Rejected</option>
+                    <option>Offer</option>
+
+                </select>
+                <button id="add-job-btn">
+                    Add Job
+                </button>
+            </div>
+            <div class="job-list">
+                <h2>Applications</h2>
+
+                <button id="export-btn">
+                    Export CSV
+                </button>
+
+                <div class="stats-container">
+
+                    <div class="stat-card">
+                        <h3 id="total-count">0</h3>
+                        <p>Total</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3 id="applied-count">0</h3>
+                        <p>Applied</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3 id="interview-count">0</h3>
+                        <p>Interview</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3 id="offer-count">0</h3>
+                        <p>Offers</p>
+                    </div>
+
+                </div>
+            
+
+                <div class="search-container">
+                    <input
+                        type="text"
+                        id="search-job"
+                        placeholder="Search company..."
+                    >
+                </div>
+                <select id="status-filter">
+
+                    <option value="all">
+                        All Statuses
+                    </option>
+
+                    <option value="Applied">
+                        Applied
+                    </option>
+
+                    <option value="Interview">
+                        Interview
+                    </option>
+
+                    <option value="Rejected">
+                        Rejected
+                    </option>
+
+                    <option value="Offer">
+                        Offer
+                    </option>
+
+                </select>
+
+
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="job-table-body">
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="job-tracker.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

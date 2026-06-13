@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder | NextRole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">NextRole</a>
+        </div>
+
+
+        <button class="menu-toggle">
+            ☰
+        </button>
+        <nav>
+
+            <div class="mobile-nav-header">
+                <h2>NextRole</h2>
+                <button  class="close-menu">✕</button>
+            </div>
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="resume-builder.html">Resume Builder</a></li>
+                <li><a href="job-tracker.html">Job Tracker</a></li>
+                <li><a href="cover-letter.html">Cover Letters</a></li>
+                <li><a href="ats-checker.html">ATS Checker</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="login.html" class="mobile-hide">Login</a></li>
+                <li><a href="register.html" class="cta-btn">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="resume-hero">
+            <h1>Build an ATS-Friendly Resume</h1>
+            <p>Create professional resumes that help you stand out and pass Applicant Tracking Systems.</p>
+        </section>
+        <section class="resume-builder-container">
+            <div class="resume-form">
+                <h2>Create Your Resume</h2>
+                <p>
+                    Fill in your details and watch your resume update instantly.
+                </p>
+                <h3>Full Name</h3>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Full Name"
+                >
+                <h3>Email</h3>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <h3>LinkedIn URL</h3>
+                <input
+                    type="url"
+                    id="linkedin"
+                    placeholder="LinkedIn Profile URL"
+                    required
+                >
+
+                <h3>GitHub URL</h3>
+                <input
+                    type="url"
+                    id="github"
+                    placeholder="GitHub Profil URL"
+                    required
+                >
+
+                <h3>Address</h3>
+                <input
+                    type="text"
+                    id="address"
+                    placeholder="Address"
+                >
+
+                <h3>Contact</h3>
+                <input
+                    type="text"
+                    id="phone"
+                    placeholder="Phone Number"
+                    required
+                >
+
+                <h3>Skills</h3>
+                <textarea
+                    id="skills"
+                    placeholder="Java,SQL,HTML,CSS,JavaScript"
+                    required
+                ></textarea>
+
+                <h3>College</h3>
+                <input
+                    type="text"
+                    id="college"
+                    placeholder="College"
+                >
+
+                <h3>Education</h3>
+                <textarea
+                    id="education"
+                    placeholder="Education"
+                    required
+                ></textarea>
+
+                <h3>CGPA</h3>
+                <input
+                    type="text"
+                    id="gpa"
+                    placeholder="CGPA/GPA"
+                >
+
+                <h3>Project Title</h3>
+                <input
+                    type="text"
+                    id="project-title"
+                    placeholder="Project Title"
+                    required
+                >
+                <h3>Project Description</h3>
+                <textarea
+                    id="project-description"
+                    placeholder="Describe your project"
+                    required
+                ></textarea>
+
+                <h3>Project Link</h3>
+                <input
+                    type="url"
+                    id="project-link"
+                    placeholder="Project GitHub / Live URL"
+                    required
+                >
+                <h3>Upload Existing Resume</h3>
+                <input
+                    type="file"
+                    id="resume-file"
+                    accept=".pdf, .doc, .docx"
+                >
+
+                <h3>Experience</h3>
+                 <textarea
+                    id="experience"
+                    placeholder="Internships,Experience"
+                 ></textarea>
+
+                <h3>Certifications</h3>
+                 <textarea
+                    id="certifications"
+                    placeholder="AWS, NPTEL, Coursera, Udemy etc."
+                 ></textarea>
+                 <button id="generate-btn">
+                    Generate Resume
+                 </button>
+                 <button id="clear-btn">
+                    Clear Resume
+                 </button>
+                 <p id="success-message"></p>
+            </div>
+
+            <div class="resume-preview">
+                <h2>Resume Preview</h2>
+                <h3 id="preview-name">Your Name</h3>
+                <p id="preview-email">Email Address</p>
+
+                <h4>contact Information</h4>
+                <p id="preview-phone">Phone Number</p>
+                <p id="preview-location">Location</p>
+                <p id="preview-linkedin">LinkedIn Profile</p>
+                <p id="preview-github">GitHub Profile</p>
+                <hr>
+
+                <h4>Skills</h4>
+
+                <p id="preview-skills">
+                    Your skills appear here.
+                </p>
+
+                <h4>Projects</h4>
+
+                <p id="preview-project-title">
+                    Project Title
+                </p>
+
+                <p id="preview-project-description">
+                    Project Description
+                </p>
+
+                <p id="preview-project-link">
+                    Project Link
+                </p>
+                <h4>Education</h4>
+                <p id="preview-degree">Degree</p>
+                <p id="preview-cgpa">CGPA</p>
+                <h4>Experience</h4>
+                <p id="preview-experience">Your Experience appears here.</p>
+                <p id="preview-college">College</p>
+
+                <h4>Certifications</h4>
+
+                <p id="preview-certifications">
+                    Certifications appear here.
+                </p>
+            </div>
+        </section>
+    </main>
+    <script src="resume-builder.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
