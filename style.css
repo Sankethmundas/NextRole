@@ -1153,6 +1153,144 @@ td:last-child{
             grid-template-columns: repeat(2,1fr);
         }
 
+}
 
+/* ATS Checker style */
 
+.checker-hero{
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(to right,#eff6ff,#ffffff);
+}
+
+.checker-hero h1{
+    font-size:48px;
+    color:#111827;
+    margin-bottom:15px;
+}
+
+.checker-hero p{
+    max-width:700px;
+    margin:auto;
+    color:#64748b;
+    font-size:18px;
+}
+
+.ats-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 50px;
+}
+
+.ats-card,
+.ats-result{
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.ats-card textarea{
+    width: 100%;
+    min-height: 300px;
+    padding: 15px;
+    border: 1px solid #dbe3f0;
+    border-radius: 10px;
+    resize: vertical;
+    margin: 20px 0;
+}
+
+#check-ats-btn{
+    width: 100%;
+    padding: 15px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#ats-score{
+    color: #2563eb;
+    font-size: 40px;
+    margin: 20px 0;
+}
+
+.score-circle{
+    width:180px;
+    height:180px;
+    margin:30px auto;
+    border-radius:50%;
+    border:10px solid #2563eb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.score-circle h3{
+    font-size:48px;
+    color:#2563eb;
+}
+.result-section{
+
+    margin-top:25px;
+}
+.result-section ul{
+    margin-top:10px;
+    padding-left:20px;
+}
+.result-section li{
+    margin-bottom:8px;
+}
+
+.check-pass{
+    color:#16a34a;
+    font-weight:600;
+}
+
+.check-fail{
+    color:#dc2626;
+    font-weight:600;
+}
+
+.score-low{
+    color:#dc2626;
+}
+
+.score-medium{
+    color:#f59e0b;
+}
+
+.score-high{
+    color:#16a34a;
+}
+
+#matched-keywords li{
+    color:#16a34a;
+    margin-bottom:6px;
+}
+#missing-keywords li{
+    color:#dc2626;
+    margin-bottom:6px;
+}
+
+.ats-card:hover,
+.ats-result:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 50px rgba(0,0,0,0.15);
+}
+
+@media(max-width:768px){
+    .ats-container{
+        grid-template-columns: 1fr;
+        padding: 20px;
+
+    }
+    .checker-hero h1{
+        font-size:34px;
+    }
+
+    .checker-hero p{
+        font-size:16px;
+    }
 }

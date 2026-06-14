@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS-Checker | NextRole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">NextRole</a>
+        </div>
+
+
+        <button class="menu-toggle">
+            ☰
+        </button>
+        <nav>
+
+            <div class="mobile-nav-header">
+                <h2>NextRole</h2>
+                <button  class="close-menu">✕</button>
+            </div>
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="resume-builder.html">Resume Builder</a></li>
+                <li><a href="job-tracker.html">Job Tracker</a></li>
+                <li><a href="cover-letter.html">Cover Letters</a></li>
+                <li><a href="ats-checker.html">ATS Checker</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="login.html" class="mobile-hide">Login</a></li>
+                <li><a href="register.html" class="cta-btn">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="checker-hero">
+            <h1>ATS Resume Checker</h1>
+            <p>Check how well your resume matches important job keywords.</p>
+        </section>
+        <section class="ats-container">
+            <div class="ats-card">
+                <h2>Paste Your Resume</h2>
+                <textarea
+                    id="resume-text"
+                    placeholder="paste your resume here..."
+                ></textarea>
+
+                <h2>Job Description</h2>
+                <textarea 
+                    id="job-description"
+                    placeholder="Paste job description..."
+                ></textarea>
+                <button id="check-ats-btn">Check ATS Score</button>
+            </div>
+            <div class="ats-result">
+                <h2>ATS Analysis</h2>
+                <div class="score-circle">
+                    <h3 id="ats-score">
+                        0%
+                    </h3>
+                </div>
+
+                <div class="result-section">
+                    <h4>Matched Keywords</h4>
+                    <ul id="matched-keywords">
+                        <li>No keywords checked yet</li>
+                    </ul>
+                </div>
+                <div class="result-section">
+                    <h4>Missing Keywords</h4>
+                    <ul id="missing-keywords">
+                        <li>No analysis yet</li>
+                    </ul>
+
+                    <h4>Resume Completeness</h4>
+                    <ul id="resume-checks">
+                        <li>No checks performed yet.</li>
+                   </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="ats-checker.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
