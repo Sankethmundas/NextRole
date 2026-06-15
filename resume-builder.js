@@ -18,9 +18,15 @@ function connectField(inputId, previewId){
         input.value = savedValue;
         preview.textContent = savedValue;
     }
+    else{
+        preview.textContent = preview.dataset.placeholder || "";
+    }
 
     input.addEventListener("input", () => {
-        preview.textContent = input.value;
+        preview.textContent =
+            input.value ||
+            preview.dataset.placeholder ||
+            "";
 
         localStorage.setItem(inputId,input.value);
     });
@@ -44,11 +50,6 @@ connectField(
 );
 
 connectField(
-    "#skills",
-    "#preview-skills"
-);
-
-connectField(
     "#linkedin",
     "#preview-linkedin"
 );
@@ -61,6 +62,11 @@ connectField(
 connectField(
     "#address",
     "#preview-location"
+);
+
+connectField(
+    "#summary",
+    "#preview-summary"
 );
 
 connectField(
@@ -90,11 +96,6 @@ connectField(
 
 
 connectField(
-    "#project-link",
-    "#preview-project-link"
-);
-
-connectField(
     "#experience",
     "#preview-experience"
 );
@@ -102,6 +103,70 @@ connectField(
 connectField(
     "#certifications",
     "#preview-certifications"
+);
+
+const projectLinkInput = document.querySelector("#project-link");
+const previewProjectLink = document.querySelector("#preview-project-link");
+
+projectLinkInput.addEventListener(
+    "input",
+    () => {
+        previewProjectLink.href = projectLinkInput.value;
+        previewProjectLink.textContent = projectLinkInput.value;
+        localStorage.setItem(
+            "#project-link",
+            projectLinkInput.value
+        );
+    }
+);
+
+const projectDescriptionInput = document.querySelector("#project-description");
+const previewProjectDescription = document.querySelector("#preview-project-description");
+projectDescriptionInput.addEventListener(
+    "input",
+    () => {
+        previewProjectDescription.textContent =
+            projectDescriptionInput.value ||
+            "Add your project description";
+    }
+);
+const skillsInput = document.querySelector("#skills");
+const previewSkills = document.querySelector("#preview-skills");
+
+const savedSkills = localStorage.getItem("#skills");
+
+if(savedSkills){
+    skillsInput.value = savedSkills;
+
+    const skillsArray = savedSkills.split(",");
+    previewSkills.innerHTML =
+        skillsArray
+            .map(
+                skill => `<li>${skill.trim()}</li>`
+            )
+            .join("");
+
+}
+
+skillsInput.addEventListener(
+    "input",
+    () => {
+        const skillsArray = skillsInput.value.split(",");
+        previewSkills.innerHTML =
+            skillsArray
+                .map(
+                    skill =>
+                        `<span class="skill-tag">
+                            ${skill.trim()}
+                        </span>`
+                )
+                .join("");
+
+        localStorage.setItem(
+            "#skills",
+            skillsInput.value
+        );
+    }
 );
 
 const generateBtn = document.querySelector("#generate-btn");
@@ -136,3 +201,39 @@ clearBtn.addEventListener("click", () => {
         location.reload();
     }
 });
+
+
+const downloadBtn = document.querySelector("#download-btn");
+const resumePreview = document.querySelector(".resume-preview");
+downloadBtn.addEventListener(
+    "click",
+    () => {
+        const options = {
+            margin: 0.5,
+            filename: "resume.pdf",
+            image: {
+                type: "jpeg",
+                quality: 1
+            },
+            html2canvas: {
+                scale: 2
+            },
+            jsPDF: {
+                unit: "in",
+                format: "letter",
+                orientation: "portrait"
+            }
+        };
+
+        html2pdf()
+            .set(options)
+            .from(resumePreview)
+            .save()
+            .then(() => {
+                downloadBtn.style.display =
+                    "block";
+            });
+
+        downloadBtn.style.display = "none";
+    }
+);

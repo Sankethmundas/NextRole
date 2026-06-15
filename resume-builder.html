@@ -91,6 +91,13 @@
                     required
                 >
 
+                <h3>Professional Summary</h3>
+
+                <textarea
+                    id="summary"
+                    placeholder="Write a short professional summary"
+                ></textarea>
+
                 <h3>Skills</h3>
                 <textarea
                     id="skills"
@@ -168,51 +175,88 @@
             </div>
 
             <div class="resume-preview">
-                <h2>Resume Preview</h2>
-                <h3 id="preview-name">Your Name</h3>
-                <p id="preview-email">Email Address</p>
+                <div class="resume-preview-header">
+                    <h2>RESUME PREVIEW</h2>
+                    <button
+                        id="download-btn"
+                        class="download-icon"
+                        title="Download Resume"
+                    >
+                        ⭳
+                    </button>
+                </div>
+                <div class="resume-header">
+                    <h2 id="preview-name">Your Name</h2>
+                    <p>
+                        <span id="preview-email">Email</span>
+                        |
+                        <span id="preview-phone">Phone</span>
+                        |
+                        <span id="preview-location">Location</span>
+                        |
+                        <span id="preview-linkedin">LinkedIn</span>
+                        |
+                        <span id="preview-github">GitHub</span>
+                    </p>
+                </div>
+                
+                <div class="resume-section">
+                    <h4>PROFESSIONAL SUMMARY</h4>
+                    <p id="preview-summary"
+                       data-palceholder="Add your professional summary"
+                    ></p>
+                    
+                </div>
 
-                <h4>contact Information</h4>
-                <p id="preview-phone">Phone Number</p>
-                <p id="preview-location">Location</p>
-                <p id="preview-linkedin">LinkedIn Profile</p>
-                <p id="preview-github">GitHub Profile</p>
-                <hr>
+                <div class="resume-section">
+                    <h4>SKILLS</h4>
+                    <div id="preview-skills"
+                        data-palceholder="Add your Skills"
+                    ></div>
+                </div>
 
-                <h4>Skills</h4>
+                <div class="resume-section">
+                    <h4>PROJECTS</h4>
+                    <h5 id="preview-project-title"
+                        data-palceholder="Add your project tiltle"
+                    ></h5>
+                    <p id="preview-project-description"
+                       data-palceholder="Add your project description"
+                    ></p>
+                    <a id="preview-project-link"
+                       href="#"
+                       target="_blank"
+                       data-palceholder="Add your project link"
+                    >
+                    
+                    </a>
+                </div>
 
-                <p id="preview-skills">
-                    Your skills appear here.
-                </p>
+                <div class="resume-section">
+                    <h4>EDUCATION</h4>
+                    <p id="preview-college" data-palceholder="Add your College"></p>
+                    <p id="preview-degree" data-palceholder="Add your degree"></p>
+                    <p id="preview-cgpa" data-palceholder="Add your CGPA">CGPA</p>
+                </div>
+                
+                <div class="resume-section">
+                    <h4>EXPERIENCE</h4>
+                    <p id="preview-experience"
+                       data-palceholder="Add your experience"
+                    ></p>
+                </div>
 
-                <h4>Projects</h4>
-
-                <p id="preview-project-title">
-                    Project Title
-                </p>
-
-                <p id="preview-project-description">
-                    Project Description
-                </p>
-
-                <p id="preview-project-link">
-                    Project Link
-                </p>
-                <h4>Education</h4>
-                <p id="preview-degree">Degree</p>
-                <p id="preview-cgpa">CGPA</p>
-                <h4>Experience</h4>
-                <p id="preview-experience">Your Experience appears here.</p>
-                <p id="preview-college">College</p>
-
-                <h4>Certifications</h4>
-
-                <p id="preview-certifications">
-                    Certifications appear here.
-                </p>
+                <div class="resume-section">
+                    <h4>CERTIFICATIONS</h4>
+                    <p id="preview-certifications"
+                       data-palceholder="Add Cerifications"
+                    ></p>
+                </div>
             </div>
         </section>
     </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="resume-builder.js"></script>
     <script src="script.js"></script>
 
