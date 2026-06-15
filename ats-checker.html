@@ -42,6 +42,12 @@
         </section>
         <section class="ats-container">
             <div class="ats-card">
+
+                <input
+                    type="file"
+                    id="resume-file"
+                    accept=".txt, .pdf"
+                >
                 <h2>Paste Your Resume</h2>
                 <textarea
                     id="resume-text"
@@ -63,14 +69,18 @@
                     </h3>
                 </div>
 
+                <h3 id="completeness-score">
+                    Resume Completeness: 0%
+                </h3>
+
                 <div class="result-section">
-                    <h4>Matched Keywords</h4>
+                    <h4>Matched Skills</h4>
                     <ul id="matched-keywords">
                         <li>No keywords checked yet</li>
                     </ul>
                 </div>
                 <div class="result-section">
-                    <h4>Missing Keywords</h4>
+                    <h4>Missing Skills</h4>
                     <ul id="missing-keywords">
                         <li>No analysis yet</li>
                     </ul>
@@ -79,10 +89,26 @@
                     <ul id="resume-checks">
                         <li>No checks performed yet.</li>
                    </ul>
+
+                   <h4>Resume Tech Stack</h4>
+                    <ul id="resume-tech-stack">
+                        <li>No technologies detected yet</li>
+                    </ul>
+                    <h4>Skill Gap Analysis</h4>
+                    <div id="skill-gap">
+                        No analysis yet
+                    </div>
+                    <h4>Suggestions</h4>
+                    <ul id="ats-suggestions">
+                        <li>
+                            No suggestions yet
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="ats-checker.js"></script>
     <script src="script.js"></script>
 </body>
