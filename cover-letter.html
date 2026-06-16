@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover-Letter Generator | NextRole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">NextRole</a>
+        </div>
+
+
+        <button class="menu-toggle">
+            ☰
+        </button>
+        <nav>
+
+            <div class="mobile-nav-header">
+                <h2>NextRole</h2>
+                <button  class="close-menu">✕</button>
+            </div>
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="resume-builder.html">Resume Builder</a></li>
+                <li><a href="job-tracker.html">Job Tracker</a></li>
+                <li><a href="cover-letter.html">Cover Letters</a></li>
+                <li><a href="ats-checker.html">ATS Checker</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="login.html" class="mobile-hide">Login</a></li>
+                <li><a href="register.html" class="cta-btn">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="cover-letter-hero">
+            <h1>
+                Create Professional cover letters
+            </h1>
+            <p>Generate tailored cover letters that help you stand out and land interviews.</p>
+        </section>
+        <section class="cover-letter-container">
+            <div class="cover-letter-form">
+                <h2>
+                    Cover Letter Details
+                </h2>
+
+                <h3>Template</h3>
+                <select id="cover-template">
+                    <option value="standard">
+                        Standard
+                    </option>
+
+                    <option value="startup">
+                        Startup
+                    </option>
+
+                    <option value="formal">
+                        Formal Corporate
+                    </option>
+                </select>
+                <h3>Your Name</h3>
+
+                <input
+                    type="text"
+                    id="full-name"
+                    placeholder="Full Name"
+                >
+
+                <h3>Job Title</h3>
+
+                <input
+                    type="text"
+                    id="job-title"
+                    placeholder="Frontend Developer"
+                >
+                <h3>Company Name</h3>
+
+                <input
+                    type="text"
+                    id="company-name"
+                    placeholder="Google"
+                >
+                <h3>Hiring Manager</h3>
+
+                <input
+                    type="text"
+                    id="hiring-manager"
+                    placeholder="Optional"
+                >
+
+                <h3>Skills</h3>
+                <textarea
+                    id="skills"
+                    placeholder="Java, React, Node.js"
+                ></textarea>
+
+                <h3>Experience</h3>
+                <textarea
+                    id="experience"
+                    placeholder="Describe your experience"
+                ></textarea>
+
+                <button id="generate-cover-letter">
+                    Generate Cover Letter
+                </button>
+            </div>
+        
+
+            <div class="cover-letter-preview">
+
+                <div class="cover-letter-header">
+                    <h2 class="cover-letter-title">Generated Cover Letter</h2>
+                    <div class="cover-letter-actions">
+                        <button id="download-cover-letter"
+                                title="Download PDF"
+                        >
+                            ⭳
+                        </button>
+                        <button id="copy-cover-letter"
+                                title="Copy Cover Letter"
+                        >
+                            📋
+                        </button>
+                    </div>
+                </div>
+
+                <div id="cover-letter-output">
+                    Your cover letter will appear here.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="cover-letter.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
