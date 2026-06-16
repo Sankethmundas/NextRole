@@ -857,7 +857,62 @@ auth-switch a{
     font-weight:600;
 }
 
+.template-selector{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
 
+.template-btn{
+    padding:8px 16px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:600;
+}
+.template-btn.active{
+    background:#2563eb;
+    color:white;
+}
+
+.template-btn:hover{
+    opacity:0.9;
+}
+
+.modern-template{
+    border-left:8px solid #2563eb;
+    padding-left:25px;
+}
+
+.modern-template .resume-header{
+    text-align:left;
+}
+
+.professional-template{
+    border-top:6px solid #111827;
+}
+
+.professional-template .resume-header{
+    text-align:center;
+}
+
+.professional-template h4{
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:#111827;
+}
+
+.minimal-template{
+    box-shadow:none;
+}
+
+.minimal-template .resume-section{
+    border-top:none;
+}
+
+.minimal-template h4{
+    color:#6b7280;
+}
 
 @media(max-width:768px){
     .resume-builder-container{

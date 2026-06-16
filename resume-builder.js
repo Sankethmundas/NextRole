@@ -237,3 +237,24 @@ downloadBtn.addEventListener(
         downloadBtn.style.display = "none";
     }
 );
+
+const templateButtons = document.querySelectorAll(".template-btn");
+
+templateButtons.forEach((button) => {
+    button.addEventListener(
+        "click",
+        () => {
+            const template = button.dataset.template;
+            templateButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+            resumePreview.classList.remove(
+                "modern-template",
+                "professional-template",
+                "minimal-template"
+            );
+            resumePreview.classList.add(
+                `${template}-template`
+            );
+        }
+    );
+});
