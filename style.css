@@ -1,5 +1,24 @@
 /* Remove default browser spacing */
 
+
+
+:root{
+    --bg-color:#f8fafc;
+    --card-bg:#ffffff;
+    --text-color:#111827;
+    --secondary-text:#6b7280;
+    --primary-color:#2563eb;
+    --border-color:#d1d5db;
+}
+
+.dark-mode{
+    --bg-color:#111827;
+    --card-bg:#1f2937;
+    --text-color:#f9fafb;
+    --secondary-text:#d1d5db;
+    --border-color:#374151;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,17 +26,20 @@
 }
 
 body{
-    font-family: 'Arial', sans-serif;
+    font-family:'Arial',sans-serif;
     line-height:1.6;
-    background-color: #f9fafb;
-    color: #333;
+
+    background:var(--bg-color);
+    color:var(--text-color);
+
+    transition:0.3s;
 }
 
 header {
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background: white;
+    background: var(--card-bg);
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     margin-bottom: 0px; 
     position: sticky;
@@ -46,7 +68,7 @@ nav ul {
 }
 nav a{
     text-decoration:none;
-    color:#333;
+    color: var(--text-color);
     font-weight:500;
     transition:color 0.3s ease;
 }
@@ -87,7 +109,7 @@ nav .cta-btn{
 .hero {
     padding: 120px 20px;
     text-align: center;
-    background: linear-gradient(to right,#eff6ff, #ffffff);
+    background: var(--bg-color);
 }
 
 .hero h1 {
@@ -101,7 +123,7 @@ nav .cta-btn{
     max-width: 650px;
     margin:auto;
     font-size: 20px;
-    color:#666;
+    color: var(--secondary-text);
 }
 
 .hero-buttons {
@@ -193,7 +215,7 @@ nav .cta-btn{
 }
 
 .feature-card {
-    background: white;
+    background: var(--card-bg);
     padding:30px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -207,11 +229,11 @@ nav .cta-btn{
 
 .feature-card h3 {
     margin-bottom: 15px;
-    color: #111827;
+    color: var(--text-color);
 } 
 
 .how-it-works{
-    background: linear-gradient(to bottom, #f8fafc, white);
+    background: var(--bg-color);
 }
 
 .how-it-works h2 {
@@ -227,14 +249,14 @@ nav .cta-btn{
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
- step {
+ .step {
     flex: 1;
     text-align: center;
  }
 
 .steps{
     padding: 30px;
-    background: #f8fafc;
+    background: var(--card-bg);
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
@@ -242,7 +264,7 @@ nav .cta-btn{
 }
 
 .steps:hover {
-    background: #f1f5f9;
+    background: var(--card-bg);
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
@@ -263,13 +285,13 @@ nav .cta-btn{
 }
 
 .steps h3 {
-    color: #111827;
+    color: var(--text-color);
     font-size: 24px;
     margin-bottom: 5px;
 }
 
 .steps p {
-    color: #64748b;
+    color: var(--secondary-text);
     line-height: 1.6;
 }
 
@@ -357,11 +379,11 @@ footer a:hover {
     padding: 40px 20px;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #eff6ff, #ffffff);
+    background: var(--bg-color);
 }
 
 .auth-card {
-    background: white;
+    background: var(--card-bg);
     padding: 40px;
     width: 100%;
     max-width: 450px;
@@ -375,7 +397,7 @@ footer a:hover {
 }
 
 .auth-card p{
-    color: #666;
+    color: var(--secondary-text);
     margin-bottom: 25px
 }
 .auth-card input{
@@ -483,6 +505,17 @@ auth-switch a{
     display:none;
 }
 
+#theme-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:none;
+    border:none;
+    font-size:1.5rem;
+    cursor:pointer;
+    padding:8px;
+    color: var(--text-color);
+}
 
 @media (max-width: 768px) {
     
@@ -493,10 +526,12 @@ auth-switch a{
     }
     .menu-toggle {
         display: block;
+        color: var(--text-color);
     }
 
     .close-menu{
         display: block;
+        color: var(--text-color);
         position: absolute;
         top: 25px;
         right: 25px;
@@ -510,7 +545,11 @@ auth-switch a{
         justify-content: space-between;
         align-items: center;
         padding:25px;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .mobile-nav-header h2{
+        color:var(--text-color);
     }
 
     .mobile-hide{
@@ -550,8 +589,8 @@ auth-switch a{
         right: -100%;
         width: 100%;
         height: 100vh;
-        background:white;
-        z-index: 1000;
+        background: var(--card-bg);
+        z-index: 1100;
         transition: 0.4s ease;
     }
 
@@ -569,6 +608,10 @@ auth-switch a{
         gap: 35px;
     }
 
+    nav ul li a{
+        color:var(--text-color);
+    }
+
     .hero h1 {
         font-size: 40px;
     }
@@ -580,7 +623,7 @@ auth-switch a{
     nav .cta-btn 
     {
         background: #2563eb;
-        color: #333 !important;
+        color: white !important;
         padding: 5px 10px;
         border-radius: 10px;
         display: inline-block;
@@ -654,7 +697,7 @@ auth-switch a{
 .resume-hero p{
     max-width: 700px;
     margin: auto;
-    color:#64748b;
+    color: var(--secondary-text);
 }
 
 .resume-builder-container{
@@ -665,7 +708,7 @@ auth-switch a{
 }
 
 .resume-form{
-    background: white;
+    background: var(--card-bg);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -673,16 +716,6 @@ auth-switch a{
 
 .resume-form h2{
     margin-bottom: 20px;
-}
-
-.resume-form input, 
-.resume-form textarea{
-    width: 100%;
-    padding:15px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 16px;
 }
 
 .resume-form textarea{
@@ -706,7 +739,7 @@ auth-switch a{
 }
 
 .resume-preview{
-    background: white;
+    background: var(--card-bg);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -723,11 +756,11 @@ auth-switch a{
 .resume-form h2{
     margin-bottom: 10px;
     font-size: 28px;
-    color:#111827;
+    color: var(--text-color);
 }
 
 .resume p{
-    color: #64748b;
+    color: var(--secondary-text);
     margin-bottom: 25px;
 }
 
@@ -735,12 +768,13 @@ auth-switch a{
 .resume-form textarea{
     width: 100%;
     padding: 14px 16px;
-    border: 1px solid #dbe3f0;
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     font-size: 15px;
     transition: all 0.3s ease;
     margin-bottom: 15px;
-    background: #fff;
+    background: var(--card-bg);
+    color: var(--text-color);
 }
 
 .resume-form input:focus,
@@ -757,7 +791,7 @@ auth-switch a{
 }
 
 .resume-preview{
-    background: white;
+    background: var(--card-bg);
     border-radius: 15px;
     padding: 35px;
     border-top: 5px solid #2563eb;
@@ -789,14 +823,14 @@ auth-switch a{
 
 .resume-preview p{
     margin-bottom: 8px;
-    color:#555;
+    color: var(--secondary-text);
 }
 
 .resume-preview h4{
     margin-top: 25px;
     margin-bottom: 12px;
-    color: #111827;
-    border-bottom: 1px solid #e5e7eb;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 8px;
 }
 
@@ -840,9 +874,9 @@ auth-switch a{
 #clear-btn{
     width: 100%;
     margin-top: 12px;
-    background: #f3f4f6;
-    color: #333;
-    border: 1px solid #d1d5db;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
     padding: 15px;
     border-radius: 10px;
     cursor: pointer;
@@ -850,7 +884,7 @@ auth-switch a{
 }
 
 #clear-btn:hover{
-    background: #e5e7eb;
+    filter: brightness(0.95);
     transform: translateY(-2px);
 }
 
@@ -858,20 +892,23 @@ auth-switch a{
     text-align:center;
     margin-bottom:25px;
 }
+.resume-preview-header h2{
+    color: var(--text-color);
+}
 
 .resume-header h2{
     font-size:32px;
     margin-bottom:10px;
-    color:#111827;
+    color: var(--text-color);
 }
 
 .resume-header p{
-    color:#64748b;
+    color: var(--secondary-text);
     font-size:14px;
 }
 
 .resume-section{
-    border-top:1px solid #e5e7eb;
+    border-top:1px solid var(--border-color);
     padding-top:10px;
     margin-top:12px;
 }
@@ -884,7 +921,7 @@ auth-switch a{
 
 .skill-tag{
     display:inline-block;
-    background:#eff6ff;
+    background: rgba(37,99,235,0.15);
     color:#2563eb;
     padding:6px 12px;
     border-radius:20px;
@@ -908,7 +945,7 @@ auth-switch a{
 }
 .template-btn.active{
     background:#2563eb;
-    color:white;
+    color: var(--card-bg);
 }
 
 .template-btn:hover{
@@ -925,7 +962,7 @@ auth-switch a{
 }
 
 .professional-template{
-    border-top:6px solid #111827;
+    border-top:6px solid var(--text-color);
 }
 
 .professional-template .resume-header{
@@ -935,7 +972,7 @@ auth-switch a{
 .professional-template h4{
     text-transform:uppercase;
     letter-spacing:2px;
-    color:#111827;
+    color: var(--text-color);
 }
 
 .minimal-template{
@@ -947,7 +984,7 @@ auth-switch a{
 }
 
 .minimal-template h4{
-    color:#6b7280;
+    color: var(--secondary-text);
 }
 
 @media(max-width:768px){
