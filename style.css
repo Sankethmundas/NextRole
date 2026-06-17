@@ -84,7 +84,7 @@ nav a:hover{
     transition: all 0.3s ease;
 }
 
-.mobile-hide{
+.login-btn{
     background: #2563eb;
     color: white !important;
     padding: 8px 16px;
@@ -97,7 +97,7 @@ nav .cta-btn{
     margin-left: -1px;
 }
 
-.mobile-hide:hover{
+.login-btn:hover{
     background:#121211;
     transform:translateY(-2px);
 }
@@ -384,6 +384,7 @@ footer a:hover {
 
 .auth-card {
     background: var(--card-bg);
+    color: var(--text-color);
     padding: 40px;
     width: 100%;
     max-width: 450px;
@@ -394,6 +395,7 @@ footer a:hover {
 
 .auth-card h1{
     margin-bottom: 10px;
+    color: var(--text-color);
 }
 
 .auth-card p{
@@ -404,10 +406,21 @@ footer a:hover {
     width: 100%;
     padding: 14px;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     font-size: 16px;
+    background: var(--card-bg);
+    color: var(--text-color);
+}
 
+.auth-card input::placeholder{
+    color: var(--secondary-text);
+}
+
+.auth-card input:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.1);
 }
 
 .auth-card button{
@@ -426,10 +439,10 @@ footer a:hover {
     background: #1d4ed8;
 }
 
-auth-switch{
+.auth-switch{
     margin-top: 20px;
 }
-auth-switch a{
+.auth-switch a{
     text-decoration: none;
     color: #2563eb;
     font-weight: 600;
@@ -489,12 +502,18 @@ auth-switch a{
     transition: all 0.3s ease;
 }
 .back-home a:hover{
-    background: #eff6ff;
+    background: var(--bg-color);
     transform: translateX(-3px);
 }
 
 .mobile-nav-header{
     display:none;
+}
+.mobile-nav-header h2{
+    color: var(--text-color);
+}
+nav a{
+    color: var(--text-color);
 }
 
 .close-menu{
@@ -552,8 +571,8 @@ auth-switch a{
         color:var(--text-color);
     }
 
-    .mobile-hide{
-        display: none;
+    .login-btn{
+        display: inline-block;
     }
 
     .auth-card{
@@ -592,6 +611,7 @@ auth-switch a{
         background: var(--card-bg);
         z-index: 1100;
         transition: 0.4s ease;
+        overflow-y: auto;
     }
 
 
@@ -601,11 +621,26 @@ auth-switch a{
 
 
     nav ul {
+        display: flex;
         flex-direction: column;
         align-items: center;
         padding: 100px 30px;
         margin-top: 10px;
         gap: 35px;
+    }
+
+    nav ul li:nth-last-child(2) {
+        order: -2;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul li:nth-last-child(1) {
+        order: -1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     nav ul li a{
@@ -620,15 +655,19 @@ auth-switch a{
         flex-direction: column;;
     }
 
-    nav .cta-btn 
+    nav .cta-btn,
+    nav .login-btn 
     {
         background: #2563eb;
         color: white !important;
-        padding: 5px 10px;
+        padding: 10px 20px;
         border-radius: 10px;
         display: inline-block;
         margin-top: 10px;
         font-weight: 600;
+        text-align: center;
+        width: 100%;
+        max-width: 200px;
     }
     .hide {
         display: none;
@@ -1911,12 +1950,13 @@ input[type="date"]{
 
 .pricing-hero h1{
     font-size:3rem;
+    color: var(--text-color);
     margin-bottom:15px;
 }
 
 .pricing-hero p{
     font-size:1.1rem;
-    color:#6b7280;
+    color: var(--secondary-text);
 }
 
 .pricing-container{
@@ -1929,7 +1969,8 @@ input[type="date"]{
 
 .pricing-card{
     flex:1;
-    background:white;
+    background: var(--card-bg);
+    color: var(--text-color);
     padding:30px;
     border-radius:16px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -1942,6 +1983,7 @@ input[type="date"]{
 }
 
 .pricing-card li{
+    color: var(--secondary-text);
     margin:12px 0;
 }
 .pricing-card button{
@@ -1987,7 +2029,7 @@ input[type="date"]{
 
 .pricing-card h3{
     font-size:3rem;
-    color:#2563eb;
+    color: var(--text-color);
     margin:15px 0 5px;
 }
 
@@ -2008,7 +2050,7 @@ input[type="date"]{
 }
 
 .faq-item{
-    background:white;
+    background: var(--card-bg);
     padding:20px;
     border-radius:12px;
     margin-bottom:20px;
@@ -2153,4 +2195,80 @@ input[type="date"]{
         max-width:300px;
         margin:0 auto;
     }
+}
+
+/* Auth options: Google Login & terms */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--secondary-text);
+}
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+.auth-divider:not(:empty)::before {
+    margin-right: .25em;
+}
+.auth-divider:not(:empty)::after {
+    margin-left: .25em;
+}
+.auth-divider span {
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+.google-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s ease;
+    margin-bottom: 15px;
+}
+.google-btn:hover {
+    background: var(--bg-color);
+}
+
+.auth-terms {
+    font-size: 12px;
+    color: var(--secondary-text);
+    margin: 15px 0;
+    line-height: 1.4;
+}
+.auth-terms a {
+    color: #2563eb;
+    text-decoration: none;
+}
+.auth-terms a:hover {
+    text-decoration: underline;
+}
+
+.auth-theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    margin-left: auto;
+}
+
+.back-home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 }
