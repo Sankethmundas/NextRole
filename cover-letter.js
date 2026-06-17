@@ -192,38 +192,39 @@ copyBtn.addEventListener(
     }
 );
 
-downloadBtn.addEventListener(
-    "click",
-    () => {
+downloadBtn.addEventListener("click", () => {
 
-        const options = {
+    output.classList.add("pdf-export");
 
-            margin:0.5,
+    const options = {
+        margin:0.5,
+        filename:"cover-letter.pdf",
 
-            filename:
-                "cover-letter.pdf",
+        image:{
+            type:"jpeg",
+            quality:1
+        },
 
-            image:{
-                type:"jpeg",
-                quality:1
-            },
+        html2canvas:{
+            scale:2,
+            backgroundColor:"#ffffff"
+        },
 
-            html2canvas:{
-                scale:2
-            },
+        jsPDF:{
+            unit:"in",
+            format:"letter",
+            orientation:"portrait"
+        }
+    };
 
-            jsPDF:{
-                unit:"in",
-                format:"letter",
-                orientation:"portrait"
-            }
+    html2pdf()
+        .set(options)
+        .from(output)
+        .save()
+        .then(() => {
 
-        };
+            output.classList.remove("pdf-export");
 
-        html2pdf()
-            .set(options)
-            .from(output)
-            .save();
+        });
 
-    }
-);
+});

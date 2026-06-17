@@ -750,7 +750,8 @@ auth-switch a{
 }
 
 .resume-preview h3{
-    color: #2563eb;
+    color: var(--text-color);
+    font-weight: 700;
 }
 
 .resume-form h2{
@@ -911,23 +912,25 @@ auth-switch a{
     border-top:1px solid var(--border-color);
     padding-top:10px;
     margin-top:12px;
+    text-align: left;
 }
 
 .resume-section h4{
     margin:0 0 8px 0;
-    color:#2563eb;
+    color: var(--text-color);
+    font-weight: 700;
     letter-spacing:2px;
 }
 
 .skill-tag{
-    display:inline-block;
-    background: rgba(37,99,235,0.15);
-    color:#2563eb;
-    padding:6px 12px;
-    border-radius:20px;
-    margin:5px;
+    display:inline;
+    background: none;
+    color: var(--text-color);
+    padding:0;
+    border-radius:0;
+    margin:0;
     font-size:14px;
-    font-weight:600;
+    font-weight:400;
 }
 
 .template-selector{
@@ -987,6 +990,73 @@ auth-switch a{
     color: var(--secondary-text);
 }
 
+.pdf-export{
+    background:#ffffff !important;
+    color:#000000 !important;
+}
+
+.pdf-export .resume-preview-header{
+    display:none !important;
+}
+
+.pdf-export .template-selector{
+    display:none !important;
+}
+
+.pdf-export *{
+    color:#000000 !important;
+}
+
+.pdf-export .resume-header p,
+.pdf-export .resume-header p span{
+    color:#333333 !important;
+}
+
+.pdf-export .resume-section{
+    border-top:1px solid #d1d5db !important;
+}
+
+.pdf-export .resume-section h4{
+    color:#000000 !important;
+    font-weight:700 !important;
+    border-bottom:1px solid #d1d5db !important;
+}
+
+.pdf-export .resume-section p{
+    color:#333333 !important;
+}
+
+.pdf-export .skill-tag{
+    background:none !important;
+    color:#000000 !important;
+}
+
+.pdf-export #preview-project-link{
+    color:#2563eb !important;
+}
+
+.pdf-export .resume-header h2{
+    color:#000000 !important;
+}
+
+.pdf-export.resume-preview{
+    border-top:none !important;
+    box-shadow:none !important;
+}
+
+#preview-skills{
+    text-align:left;
+    padding-left:0;
+}
+
+#preview-skills ul{
+    padding-left:20px;
+}
+
+#preview-skills li{
+    margin-bottom:8px;
+    color:var(--text-color);
+}
 @media(max-width:768px){
     .resume-builder-container{
         grid-template-columns: 1fr;
@@ -1562,6 +1632,7 @@ input[type="date"]{
 .cover-letter-hero{
     text-align: center;
     padding: 50px;
+    background: var(--bg-color);
 }
 .cover-letter-container{
     display:flex;
@@ -1572,7 +1643,8 @@ input[type="date"]{
 }
 .cover-letter-form{
     flex:1;
-    background:white;
+    background: var(--card-bg);
+    color: var(--text-color);
     padding:25px;
     border-radius:12px;
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
@@ -1580,7 +1652,8 @@ input[type="date"]{
 .cover-letter-preview{
     flex:1;
     text-align: left;
-    background:white;
+    background: var(--card-bg);
+    color: var(--text-color);
     padding:25px;
     border-radius:12px;
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
@@ -1595,10 +1668,21 @@ input[type="date"]{
     width:100%;
     padding:12px;
     margin-bottom:15px;
-    border:1px solid #d1d5db;
+    border:1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-color);
     border-radius:8px;
     font-size:16px;
 }
+
+
+
+.cover-letter-form input::placeholder,
+.cover-letter-form textarea::placeholder{
+    color:var(--secondary-text);
+    opacity: 0.7;
+}
+
 #generate-cover-letter{
     width:100%;
     padding:12px;
@@ -1628,6 +1712,15 @@ input[type="date"]{
 .cover-letter-form h3{
     margin-bottom:8px;
 }
+.cover-letter-form:hover,
+.cover-letter-preview:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+.cover-letter-form,
+.cover-letter-preview{
+    transition:.3s ease;
+}
 
 .cover-letter-form input,
 .cover-letter-form textarea{
@@ -1647,8 +1740,20 @@ input[type="date"]{
     margin:0;
 }
 
-
-
+.pdf-export{
+    background:white !important;
+    color:black !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+.pdf-export p,
+.pdf-export h1,
+.pdf-export h2,
+.pdf-export h3,
+.pdf-export h4,
+{
+    color:black !important;
+}
 
 #copy-cover-letter{
     background:none;
@@ -1661,7 +1766,7 @@ input[type="date"]{
 }
 
 #copy-cover-letter:hover{
-    background:#f3f4f6;
+    background: rgba(255,255,255,0.08);
 }
 
 .cover-letter-actions{
@@ -1670,6 +1775,7 @@ input[type="date"]{
 }
 
 .cover-letter-actions button{
+    color: var(--text-color);
     background:none;
     border:none;
     cursor:pointer;
@@ -1679,19 +1785,29 @@ input[type="date"]{
 }
 
 .cover-letter-actions button:hover{
-    background:#f3f4f6;
+    background: rgba(255,255,255,0.08);
+    transform: scale(1.1);
 }
 .cover-letter-actions button{
     transition:0.2s;
 }
 
+
+
 .cover-letter-actions button:hover{
     background:#f3f4f6;
     transform:scale(1.1);
 }
-
+#cover-letter-output{
+    color:var(--text-color);
+}
 #cover-letter-output p{
     margin-bottom:12px;
+}
+.cover-letter-form h2,
+.cover-letter-form h3,
+.cover-letter-preview h2{
+    color:var(--text-color);
 }
 
 .signature{
@@ -1700,16 +1816,23 @@ input[type="date"]{
 }
 
 .signature-name{
-    margin-top: -10px;
+    margin-top: 10px;
     margin-bottom: 0;
     font-weight: 600;
+    color: var(--text-color);
+}
+.pdf-export .signature-name{
+    color:black !important;
+    opacity:1 !important;
 }
 
 #cover-template{
     width:100%;
     padding:12px;
     margin-bottom:15px;
-    border:1px solid #d1d5db;
+    border:1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-color);
     border-radius:8px;
     font-size:16px;
 }

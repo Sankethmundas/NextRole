@@ -137,30 +137,27 @@ const savedSkills = localStorage.getItem("#skills");
 
 if(savedSkills){
     skillsInput.value = savedSkills;
-
-    const skillsArray = savedSkills.split(",");
+    const skillsArray = savedSkills.split(",").map(s => s.trim()).filter(s => s);
     previewSkills.innerHTML =
         skillsArray
             .map(
-                skill => `<li>${skill.trim()}</li>`
+                skill =>
+                    `<span class="skill-tag">${skill}</span>`
             )
-            .join("");
-
+            .join(", ");
 }
 
 skillsInput.addEventListener(
     "input",
     () => {
-        const skillsArray = skillsInput.value.split(",");
+        const skillsArray = skillsInput.value.split(",").map(s => s.trim()).filter(s => s);
         previewSkills.innerHTML =
             skillsArray
                 .map(
                     skill =>
-                        `<span class="skill-tag">
-                            ${skill.trim()}
-                        </span>`
+                        `<span class="skill-tag">${skill}</span>`
                 )
-                .join("");
+                .join(", ");
 
         localStorage.setItem(
             "#skills",
@@ -202,42 +199,88 @@ clearBtn.addEventListener("click", () => {
     }
 });
 
-
+const resumeContent = document.querySelector("#resume-content");
 const downloadBtn = document.querySelector("#download-btn");
 const resumePreview = document.querySelector(".resume-preview");
-downloadBtn.addEventListener(
-    "click",
-    () => {
-        const options = {
-            margin: 0.5,
-            filename: "resume.pdf",
-            image: {
-                type: "jpeg",
-                quality: 1
-            },
-            html2canvas: {
-                scale: 2
-            },
-            jsPDF: {
-                unit: "in",
-                format: "letter",
-                orientation: "portrait"
-            }
-        };
+downloadBtn.addEventListener("click", () => {
 
-        html2pdf()
-            .set(options)
-            .from(resumePreview)
-            .save()
-            .then(() => {
-                downloadBtn.style.display =
-                    "block";
-            });
+    const resumeContent =
+        document.querySelector("#resume-content");
 
-        downloadBtn.style.display = "none";
+    // Temporarily remove dark mode so CSS variables resolve to light values
+    const body = document.body;
+    const wasDarkMode = body.classList.contains("dark-mode");
+    if (wasDarkMode) {
+        body.classList.remove("dark-mode");
     }
-);
 
+    resumeContent.classList.add("pdf-export");
+
+    downloadBtn.style.display = "none";
+
+    const templateSelector =
+        document.querySelector(".template-selector");
+
+    if(templateSelector){
+        templateSelector.style.display = "none";
+    }
+
+    const options = {
+
+        margin: 0.3,
+
+        filename: "resume.pdf",
+
+        image: {
+            type: "jpeg",
+            quality: 1
+        },
+
+        html2canvas: {
+            scale: 2,
+            backgroundColor: "#ffffff",
+            useCORS: true,
+            logging: false
+        },
+
+        pagebreak: {
+            mode: ["avoid-all", "css", "legacy"]
+        },
+
+        jsPDF: {
+            unit: "in",
+            format: "a4",
+            orientation: "portrait"
+        }
+    };
+
+    // Wait for CSS repaint before capturing
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            html2pdf()
+                .set(options)
+                .from(resumeContent)
+                .save()
+                .then(() => {
+
+                    resumeContent.classList.remove("pdf-export");
+
+                    downloadBtn.style.display = "block";
+
+                    if(templateSelector){
+                        templateSelector.style.display = "flex";
+                    }
+
+                    // Restore dark mode if it was active
+                    if (wasDarkMode) {
+                        body.classList.add("dark-mode");
+                    }
+
+                });
+        });
+    });
+
+});
 const templateButtons = document.querySelectorAll(".template-btn");
 
 templateButtons.forEach((button) => {
