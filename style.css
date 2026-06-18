@@ -536,6 +536,35 @@ nav a{
     color: var(--text-color);
 }
 
+.footer-creator{
+    margin-top:30px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+
+.footer-creator p{
+    margin-bottom:10px;
+    color:#d1d5db;
+}
+
+.social-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.social-links a{
+    color:#60a5fa;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.social-links a:hover{
+    color:white;
+}
+
+
+
 @media (max-width: 768px) {
     
     header{
@@ -719,6 +748,11 @@ nav a{
     footer ul{
         flex-direction: column;
         gap: 15px;
+    }
+
+    .social-links{
+        flex-direction:column;
+        gap:10px;
     }
 }
 
